@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELDEN RING</title>
+    <style>
+        /* --- GLOBAL SETTINGS --- */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0D0D0D;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* --- MAIN CONTAINER --- */
+        .container {
+            width: 90%;
+            max-width: 1600px;
+            display: flex;
+            gap: 5vw;
+            align-items: start;
+            padding: 40px 20px;
+            flex-wrap: wrap;
+        }
+
+        /* --- LEFT SIDE --- */
+        .left-side {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Game Title */
+        h1 {
+            font-size: clamp(40px, 6vw, 80px); 
+            margin: 0 0 30px 0;
+            line-height: 1;
+            text-transform: uppercase;
+            background: #faefa1;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(200, 160, 80, 0.4));
+        }
+
+        .download-header {
+            font-size: clamp(18px, 2vw, 24px);
+            font-weight: 800;
+            color: #f6d158;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .download-header::after {
+            content: "";
+            height: 2px;
+            background: #333;
+            flex-grow: 1;
+        }
+
+        .links-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            width: 100%;
+        }
+
+        .link-btn {
+            background-color: #1a1a1a;
+            color: white;
+            border: 1px solid #333;
+            padding: clamp(15px, 2vh, 25px);
+            text-decoration: none;
+            font-size: clamp(16px, 1.5vw, 20px);
+            font-weight: bold;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            transition: 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        .link-btn:hover {
+            background-color: #f0e6b3;
+            color: black;
+            transform: translateX(10px);
+            box-shadow: 0 0 20px rgba(240, 230, 179, 0.4);
+            border-color: #f0e6b3;
+        }
+
+        .instructions-box {
+            margin-top: 30px;
+            background-color: #151515;
+            border: 1px dashed #444;
+            padding: 20px;
+            border-radius: 8px;
+            color: #aaa;
+            font-size: clamp(12px, 1vw, 14px);
+            line-height: 1.6;
+        }
+
+        .instructions-box strong {
+            color: #f6d158;
+        }
+
+        /* --- RIGHT SIDE --- */
+        .right-side {
+            flex: 1;
+            min-width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .image-box {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            aspect-ratio: 16 / 9;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid #333;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+        }
+        .image-box img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .req-box {
+            background-color: #1a1a1a;
+            padding: 20px;
+            border-radius: 20px;
+            border-left: 5px solid #f6d158;
+        }
+
+        .req-box h3 {
+            margin: 10px 0 10px 0;
+            color: #f6d158;
+            text-transform: uppercase;
+            font-size: clamp(14px, 1.2vw, 16px);
+            letter-spacing: 1px;
+        }
+
+        .req-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 15px 0;
+            display: grid;
+            gap: 5px;
+            color: #ccc;
+            font-size: clamp(13px, 1.1vw, 15px);
+            text-transform: uppercase;
+        }
+
+        .req-list li strong {
+            color: #f6d158;
+            margin-right: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                width: 95%;
+            }
+            .left-side, .right-side {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<audio id="bg-music" autoplay loop>
+    <source src="https://files.catbox.moe/7zqt6x.mp3">
+</audio>
+
+<script>
+    var audio = document.getElementById("bg-music");
+    audio.volume = 0.05; 
+
+    document.addEventListener('click', function() {
+        audio.play();
+    }, { once: true });
+</script>
+
+    <div class="container">
+        <div class="left-side">
+            <h1>ELDEN RING</h1>
+            <div class="download-header">DOWNLOAD</div>
+            <div class="links-container">
+
+<a href="https://www.mediafire.com/file/oir65bfbrefogxx/ELDEN+RING.part1.rar/file" target="_blank" class="link-btn">PART 1</a>
+<a href="https://www.mediafire.com/file/tct4nruup8y3qkv/ELDEN+RING.part2.rar/file" target="_blank" class="link-btn">PART 2</a>
+<a href="https://www.mediafire.com/file/ffrr3c4ei6kqp1b/ELDEN+RING.part3.rar/file" target="_blank" class="link-btn">PART 3</a>
+<a href="https://www.mediafire.com/file/byi0ep45zz6ewe0/ELDEN+RING.part4.rar/file" target="_blank" class="link-btn">PART 4</a>
+<a href="https://www.mediafire.com/file/artgmh23d2rjpdp/ELDEN+RING.part5.rar/file" target="_blank" class="link-btn">PART 5</a>
+<a href="https://www.mediafire.com/file/x2j6eqtwrhtvxrs/ELDEN+RING.part6.rar/file" target="_blank" class="link-btn">PART 6</a>
+<a href="https://www.mediafire.com/file/891oxdijoaew4gu/ELDEN+RING.part7.rar/file" target="_blank" class="link-btn">PART 7</a>
+
+            </div>
+
+            <div class="instructions-box">
+                <strong>INSTRUCTIONS:</strong><br>
+                1. DOWNLOAD ALL THE FILES<br>
+                2. EXTRACT THEM ALL<br>
+                3. RUN THE GAME<br>
+                4. ENJOY??<br>
+                PASSWORD: <strong>DUCKEMPIRE</strong><br>  
+            </div>
+        </div>
+
+        <div class="right-side">
+            <div class="image-box">
+                <img src="https://image.api.playstation.com/vulcan/ap/rnd/202110/2000/YMUoJUYNX0xWk6eTKuZLr5Iw.jpg" alt="Game Picture">
+            </div>
+
+
+            <div class="req-box">
+                <h3>System Requirements (RECOMMENDED)</h3>
+                <ul class="req-list">
+<li><strong>OS:</strong>Windows 10/11</li>
+<li><strong>CPU:</strong>INTEL CORE I7-8700K or AMD RYZEN 5 3600X</li>
+<li><strong>GPU:</strong>NVIDIA GEFORCE GTX 1070 8 GB or AMD RADEON RX VEGA 56 8 GB</li>
+<li><strong>RAM:</strong>16 GB</li>
+<li><strong>STORAGE:</strong>60 GB</li>
+<li><strong>DIRECTX:</strong>VERSION 12</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
