@@ -44,17 +44,33 @@
 
         #search-bar {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             font-size: 1.2rem;
             border-radius: 30px;
-            border: none;
             outline: none;
             text-align: center;
-            background-color: #FFFFFF;
-            color: black;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
             box-sizing: border-box;
+            
+            /* iOS Liquid Glass Effect */
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(25px) saturate(200%);
+            -webkit-backdrop-filter: blur(25px) saturate(200%);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
+
+        #search-bar::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        #search-bar:focus {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
         #sort-container {
             margin: 20px 0;
             display: flex;
@@ -186,6 +202,7 @@
     </div>
 
     <script>
+
         const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSO2NCnGKW2SSHt5RkyY-_p3LTgaN1v8mSvtjXTAzI-QDWST4OBziHMNA3IEo2bEw/pub?output=csv';
 
         const container = document.getElementById('games-container');
