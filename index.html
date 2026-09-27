@@ -33,7 +33,7 @@
         }
         #search-container {
             width: 100%;
-            max-width: 1000px;
+            max-width: 1600px;
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
@@ -85,7 +85,7 @@
         #games-container {
             display: grid;
             width: 95%;
-            max-width: 1800px;
+            max-width: 3000px; 
             grid-template-columns: repeat(2, 1fr); 
             gap: 30px;
             padding: 40px 0;
@@ -101,6 +101,18 @@
         @media (min-width: 1200px) {
             #games-container {
                 grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        @media (min-width: 1600px) {
+            #games-container {
+                grid-template-columns: repeat(8, 1fr);
+            }
+        }
+
+        @media (min-width: 2560px) {
+            #games-container {
+                grid-template-columns: repeat(12, 1fr);
             }
         }
 
@@ -174,7 +186,6 @@
     </div>
 
     <script>
-        // --- 1. CONFIGURATION ---
         const SHEET_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSO2NCnGKW2SSHt5RkyY-_p3LTgaN1v8mSvtjXTAzI-QDWST4OBziHMNA3IEo2bEw/pub?output=csv';
 
         const container = document.getElementById('games-container');
@@ -183,7 +194,6 @@
         let gamesData = []; 
         let currentGames = [];
 
-        // --- 2. FETCH DATA FUNCTION ---
         async function loadGames() {
             try {
                 const response = await fetch(SHEET_URL);
@@ -196,14 +206,24 @@
 
                 gamesData = tableBody.map(row => {
                     const columns = row.split(',');
+                    const customPage = columns[13] ? columns[13].trim() : '';
                     
+                    if (customPage !== '') {
+                        return {
+                            title: columns[0] ? columns[0].trim() : customPage.replace('.html', ''),
+                            date: columns[1] ? columns[1].trim() : '1970-01-01',
+                            image: columns[2] ? columns[2].trim() : 'https://via.placeholder.com/512?text=Custom+Page',
+                            customPage: customPage
+                        };
+                    }
+
                     if(columns.length < 3) return null;
 
                     return {
                         title: columns[0] ? columns[0].trim() : '',
                         date: columns[1] ? columns[1].trim() : '',
                         image: columns[2] ? columns[2].trim() : '',
-                        customPage: columns[13] ? columns[13].trim() : ''
+                        customPage: ''
                     };
                 }).filter(game => game !== null && game.title !== '');
 
@@ -219,7 +239,6 @@
             }
         }
 
-        // --- 3. RENDER FUNCTION ---
         function renderGames(games) {
             container.innerHTML = '';
             
@@ -260,7 +279,6 @@
             });
         }
 
-        // --- 4. SEARCH FUNCTION ---
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             currentGames = gamesData.filter(game => 
@@ -269,7 +287,6 @@
             renderGames(currentGames);
         });
 
-        // --- 5. SORT FUNCTION ---
         function sortGames(type, btn) {
             if(btn) {
                 document.querySelectorAll('.sort-btn').forEach(b => b.classList.remove('active'));
@@ -288,7 +305,6 @@
             renderGames(currentGames);
         }
 
-        // --- START THE APP ---
         loadGames();
 
     </script>
